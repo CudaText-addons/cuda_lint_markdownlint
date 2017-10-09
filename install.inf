@@ -3,3 +3,4 @@ title=Linter for Markdown, using Markdownlint
 desc=Linter for CudaLint, adds support for Markdown lexer, using Markdownlint
 type=cudatext-plugin
 subdir=cuda_lint_markdownlint
+homepage=https://github.com/CudaText-addons/cuda_lint_markdownlint
