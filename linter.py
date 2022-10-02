@@ -33,8 +33,15 @@ def which(program):
     return None
 
 
-_node = 'node' if os.name=='nt' else 'node' if which('node') else 'nodejs'
+if os.name=='nt':
+    _node = 'node'
+else:
+    _node = which('node') or which('nodejs')
+
 _js = os.path.join(os.path.dirname(__file__), 'node_modules', '.bin', 'markdownlint')
+
+#print('node exists:', os.path.isfile(_node))
+#print('script exists:', os.path.isfile(_js))
 
 
 class Markdownlint(Linter):
