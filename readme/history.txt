@@ -1,0 +1,4 @@
+
+2022.10.02
+- fix: regex pattern was wrong for the latest Markdownlint, so no errors were found
+- fix: 'nodejs' binary name was wrong for some Linux variants

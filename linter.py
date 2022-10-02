@@ -34,12 +34,13 @@ class Markdownlint(Linter):
     version_args = '--version'
     version_re = r'(?P<version>\d+\.\d+\.\d+)'
     version_requirement = '>= 1.0'
-    regex = (r'.+?:\s'
-             r'(?P<line>\d+):\s'
-             r'(?P<error>MD\d+)\s'
+    regex = (r'.+?:'
+             r'(?P<line>\d+)'
+             r'(:(?P<col>\d+))?\s'
+             r'(?P<error>MD\d+/[\w\-]+)\s'
              r'(?P<message>.+)')
     multiline = False
-    line_col_base = (0, 1)
+    line_col_base = (0, 0)
     tempfile_suffix = 'md'
     error_stream = util.STREAM_STDERR
     selectors = {}
