@@ -37,7 +37,7 @@ class Markdownlint(Linter):
     regex = (r'.+?:'
              r'(?P<line>\d+)'
              r'(:(?P<col>\d+))?\s'
-             r'(?P<error>MD\d+/[\w\-]+)\s'
+             r'(?P<error>MD\d+[/\w\-]+)\s'
              r'(?P<message>.+)')
     multiline = False
     line_col_base = (0, 0)
