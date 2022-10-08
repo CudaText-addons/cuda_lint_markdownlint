@@ -14,15 +14,11 @@
 import os
 from shutil import which
 from cuda_lint import Linter, util
-
-if os.name=='nt':
-    _node = 'node'
-else:
-    _node = which('node') or which('nodejs')
+from cudax_nodejs import NODE_FILE
 
 _js = os.path.join(os.path.dirname(__file__), 'node_modules', '.bin', 'markdownlint')
 
-#print('node exists:', os.path.isfile(_node))
+#print('node exists:', os.path.isfile(NODE_FILE))
 #print('script exists:', os.path.isfile(_js))
 
 
@@ -30,7 +26,7 @@ class Markdownlint(Linter):
     """Provides an interface to markdownlint."""
 
     syntax = 'Markdown'
-    cmd = (_node, _js)
+    cmd = (NODE_FILE, _js)
     version_args = '--version'
     version_re = r'(?P<version>\d+\.\d+\.\d+)'
     version_requirement = '>= 1.0'
